@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.zhang.mapper.DeptMapper">
+<resultMap id="Dept" type="com.zhang.pojo.Dept">
+    <id column="dept_no" javaType="Long" property="deptNo" />
+    <result column="dept_name" javaType="String" property="deptName" ></result>
+    <result column="db_source" javaType="String" property="dbSource" ></result>
+
+</resultMap>
+
+    <insert id="addDept" parameterType="Dept">
+        insert  into dept values (#{deptName},DATABASE())
+    </insert>
+
+    <select id="queryById" resultMap="Dept" parameterType="Long">
+        select * from dept where dept_no = #{deptNo}
+    </select>
+
+    <select id="queryAll" resultMap="Dept">
+        select * from dept
+    </select>
+</mapper>

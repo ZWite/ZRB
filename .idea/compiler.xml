@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="ZRB-getway" />
+        <module name="ZRB-poi" />
+        <module name="ZRB-api" />
+        <module name="ZRB-consumer-02" />
+        <module name="ZRB-provider" />
+        <module name="ZRB-provider-01" />
+        <module name="ZRB-quartz" />
+        <module name="ZRB-common" />
+        <module name="ZRB-eureka-01" />
+        <module name="ZRB-consumer" />
+        <module name="ZRB-eureka" />
+        <module name="ZRB-feign" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ZRB-common-server" target="12" />
+      <module name="ZRB-consumer-01" target="12" />
+      <module name="ZRB-eureka (1)" target="12" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

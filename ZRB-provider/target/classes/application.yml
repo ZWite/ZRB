@@ -1,0 +1,33 @@
+server:
+  port: 8001
+
+#mybatis配置
+mybatis:
+  type-aliases-package: com.zhang.pojo
+  #可有可无
+  #config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+
+
+spring:
+  application:
+    name: spring-provider-8001
+  #数据源配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/db01?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: root
+
+# Eureka 配置
+eureka:
+  instance:
+    instance-id: spring-provider-8001
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/
+
+#info actuator监控信息
+info:
+  app.name: qiyu
+  company.name: person

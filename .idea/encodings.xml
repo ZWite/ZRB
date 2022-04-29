@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/ZRB-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ZRB-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ZRB-commin/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ZRB-commin/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ZRB-common-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ZRB-common-server/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ZRB-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ZRB-common/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ZRB-consumer-01/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ZRB-consumer-01/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ZRB-consumer-02/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ZRB-consumer-02/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ZRB-consumer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ZRB-consumer/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ZRB-eureka-01/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ZRB-eureka-01/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ZRB-eureka/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ZRB-eureka/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ZRB-feign/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ZRB-feign/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ZRB-getway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ZRB-getway/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ZRB-poi/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ZRB-poi/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ZRB-provider-01/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ZRB-provider-01/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ZRB-provider/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ZRB-provider/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ZRB-quartz/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ZRB-quartz/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

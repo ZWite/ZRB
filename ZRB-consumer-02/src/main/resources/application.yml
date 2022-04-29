@@ -1,0 +1,14 @@
+server:
+  port: 7999
+spring:
+  application:
+    name: spring-provider-7999
+
+# Eureka 配置
+eureka:
+  instance:
+    instance-id: spring-provider-7999
+  client:
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/
