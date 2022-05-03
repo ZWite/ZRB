@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zhang.mapper.QuartzMapper">
+    <resultMap id="QuartzResult" type="com.zhang.pojo.quartz.Quartz">
+        <id property="id" javaType="Long" column="id"/>
+        <result property="quartzName" javaType="String" column="quartz_name" />
+        <result property="quartzExpression" javaType="String" column="quartz_expression" />
+        <result property="quartzCorn" javaType="String" column="quartz_corn" />
+        <result property="createDate"  column="create_date" />
+        <result property="quartzMethod"  column="quartz_method" />
+    </resultMap>
+
+
+    <select id="selectOne" resultMap="QuartzResult" parameterType="Long">
+        select * from quartz where id = #{id};
+    </select>
+
+    <insert id="add" parameterType="Quartz">
+        insert into quartz values (#{id},#{quartzName},#{quartzExpression},#{quartzCorn},#{createDate},#{quartzMethod})
+    </insert>
+
+    <update id="update"  parameterType="Quartz">
+        update quartz set quartz_corn = #{quartzCorn} where id = #{id}
+    </update>
+
+</mapper>

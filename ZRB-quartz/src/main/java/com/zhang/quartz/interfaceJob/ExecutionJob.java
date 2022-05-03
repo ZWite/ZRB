@@ -30,7 +30,7 @@ public class ExecutionJob extends QuartzJobBean {
             log.info("任务开始执行，任务名称:"+quartz.getQuartzName());
             Class aClass = Class.forName(quartz.getQuartzExpression());
             Method method  = aClass.getMethod(quartz.getQuartzMethod());
-            method.invoke(aClass.newInstance());
+            method.invoke(quartz.getQuartzMethod());
             long time = System.currentTimeMillis() - start;
             log.info("执行时间：" +time+"毫秒");
         } catch (Exception e){
