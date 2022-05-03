@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**
@@ -16,10 +17,14 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 @NoArgsConstructor
 @Accessors(chain = true)
-public class Quartz {
+public class Quartz implements Serializable {
+
+    public static final String JOB_KEY = "JOB_KEY";
+
     private Long id;
     private String quartzName;
     private String quartzExpression;
     private String quartzCorn;
     private Timestamp createDate;
+    private String quartzMethod;
 }

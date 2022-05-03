@@ -19,6 +19,7 @@
         <module>ZRB-consumer-02</module>
         <module>ZRB-getway</module>
         <module>ZRB-provider-01</module>
+        <module>ZRB-quartz</module>
     </modules>
 
     <properties>

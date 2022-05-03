@@ -1,7 +1,6 @@
 package com.zhang.quartz;
 
 import com.zhang.quartz.interfaceJob.BaseJob;
-import lombok.extern.log4j.Log4j;
 import lombok.extern.slf4j.Slf4j;
 import org.quartz.DisallowConcurrentExecution;
 import org.quartz.JobExecutionContext;

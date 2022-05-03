@@ -8,7 +8,6 @@ mybatis:
   #config-location: classpath:mybatis/mybatis-config.xml
   mapper-locations: classpath:mybatis/mapper/*.xml
 
-
 spring:
   application:
     name: spring-provider-8001
@@ -31,3 +30,9 @@ eureka:
 info:
   app.name: qiyu
   company.name: person
+
+# 日志配置
+logging:
+  level:
+    com.zhang: debug
+    org.springframework: warn

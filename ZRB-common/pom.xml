@@ -18,12 +18,6 @@
 
 
     <dependencies>
-        <!-- 引入服务提供者 ,service接口在provider包内-->
-<!--        <dependency>-->
-<!--            <groupId>com.zhang</groupId>-->
-<!--            <artifactId>ZRB-provider</artifactId>-->
-<!--            <version>1.0.0-SNAPSHOT</version>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>com.auth0</groupId>
             <artifactId>java-jwt</artifactId>
@@ -58,10 +52,10 @@
             <artifactId>lombok</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.quartz-scheduler</groupId>
-            <artifactId>quartz</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.quartz-scheduler</groupId>-->
+<!--            <artifactId>quartz</artifactId>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>org.springframework.cloud</groupId>
