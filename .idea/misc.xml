@@ -13,6 +13,7 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/ZRB-consumer-01/pom.xml" />
+        <option value="$PROJECT_DIR$/ZRB-getway/pom.xml" />
       </set>
     </option>
   </component>

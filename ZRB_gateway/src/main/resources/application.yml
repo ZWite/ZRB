@@ -1,0 +1,27 @@
+server:
+  port: 8789
+
+spring:
+  application:
+    name: ZuulAplicaiton-8789
+
+eureka:
+  instance:
+    instance-id: ZuulAplicaiton-8789
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/
+
+#zuul:
+#  routes:
+#    user-service:  #路由id
+#      path: /user-service/** #映射路径
+#      serviceId: user-service #指定服务端名称
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - routes

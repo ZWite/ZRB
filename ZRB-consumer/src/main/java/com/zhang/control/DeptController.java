@@ -17,7 +17,7 @@ import java.util.Arrays;
  * @Date: 2022/3/21 20:13
  * @ClassName: DeptController
  */
-@UserLoginToken
+//@UserLoginToken
 @RestController
 public class DeptController {
 
