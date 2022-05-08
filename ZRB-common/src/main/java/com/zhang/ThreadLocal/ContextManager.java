@@ -32,7 +32,7 @@ public class ContextManager {
     }
 
     public static <T> void setContextData(String key, Object obj) {
-        localData.get().setContextData(key, obj);
+        ((ThreadLocalData)localData.get()).setContextData(key, obj);
     }
 
     public static void clearContextData() {

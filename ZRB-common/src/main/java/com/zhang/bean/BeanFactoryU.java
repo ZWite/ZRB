@@ -37,7 +37,7 @@ public class BeanFactoryU implements ApplicationContextAware {
      * @param name
      * @param <T>
      */
-    public <T>T getBean(String name){
+    public static <T>T getBean(String name){
         return (T) applicationContext.getBean(name);
     }
 
