@@ -36,6 +36,8 @@ public class LoginControl {
 //        redisUtils.setHash(User.class.getName(), user.getUserName(), jToken);
         Object hash = redisUtils.getHash(User.class.getName(), user.getUserName());
         System.out.println(hash);
+        final Object o = redisUtils.get(jToken);
+        System.out.println(o);
 //        ContextManager.setContextData(User.class,contextUser);
     }
 

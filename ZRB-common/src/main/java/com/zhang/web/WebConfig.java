@@ -8,6 +8,7 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import java.util.Arrays;
 
 
 @Configuration
@@ -43,5 +44,15 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addInterceptor(authenticationInterceptor);
     }
 
+    public static void main(String[] args) {
+        try {
+            int i = 1/0;
+        } catch (Exception e){
+            System.out.println("!");
+            System.exit(0);
+        } finally {
+            System.out.println(2);
+        }
+    }
 
 }

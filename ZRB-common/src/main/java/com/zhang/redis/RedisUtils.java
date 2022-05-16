@@ -1,10 +1,12 @@
 package com.zhang.redis;
 
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.script.DefaultRedisScript;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
+import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -17,15 +19,15 @@ public class RedisUtils {
     @Resource
     private RedisTemplate<String, Object> redisTemplate;
 
-    /**
-     * redisTemplate
-     * opsForValue 操作字符串 类似String
-     * opsForList 操作List 类似List
-     * opsForSet
-     * opsForHash
-     * opsForZSet
-     * opsForGeo
-     */
+/**
+ * redisTemplate
+ * opsForValue 操作字符串 类似String
+ * opsForList 操作List 类似List
+ * opsForSet
+ * opsForHash
+ * opsForZSet
+ * opsForGeo
+ */
 
 
     /**
@@ -89,7 +91,7 @@ public class RedisUtils {
         }
     }
 
-    //============================String=============================
+//============================String=============================
 
     /**
      * 普通缓存获取
@@ -100,6 +102,8 @@ public class RedisUtils {
     public Object get(String key) {
         return key == null ? null : redisTemplate.opsForValue().get(key);
     }
+
+
 
     /**
      * 普通缓存放入
@@ -144,16 +148,16 @@ public class RedisUtils {
     /**
      * 普通缓存放入 Map类型
      *
-     * @param key   键
-     * @param HK    键
-     * @param HV    值
+     * @param key 键
+     * @param HK  键
+     * @param HV  值
      * @return true成功 false失败
      */
-    public boolean setHash(String key, Object HK, Object HV){
+    public boolean setHash(String key, Object HK, Object HV) {
         try {
-            redisTemplate.opsForHash().put(key,HK,HV);
+            redisTemplate.opsForHash().put(key, HK, HV);
             return true;
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
@@ -162,18 +166,74 @@ public class RedisUtils {
     /**
      * 普通缓存放入 Map类型
      *
-     * @param key   键
-     * @param HK    键
-     * @param HV    值
+     * @param key 键
+     * @param HK  键
      * @return true成功 false失败
      */
-    public Object getHash(String key, Object HK){
+    public Object getHash(String key, Object HK) {
         try {
             Object o = redisTemplate.opsForHash().get(key, HK);
             return o;
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
     }
+
+    /**
+     * 删除key
+     *
+     * @param key 键
+     * @return true成功 false失败
+     */
+    public Object delete(String key) {
+        Boolean flag = true;
+        try {
+            flag = redisTemplate.delete(key);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+        return flag;
+    }
+
+
+    /**
+     * 分布式锁
+     *
+     * @param key      键
+     * @param value    键
+     * @param time     时间long
+     * @param timeUnit 时间格式
+     * @return true成功 false失败
+     */
+    public Boolean setIfAbsent(String key, String value, long time, TimeUnit timeUnit) {
+        Boolean flag = true;
+        try {
+            flag = redisTemplate.opsForValue().setIfAbsent(key, value, time, timeUnit);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return flag;
+        }
+        return flag;
+    }
+
+    /**
+     * @param script lua脚本
+     * @param key    键
+     * @param single  唯一标识
+     * @return true成功 false失败
+     */
+    public Object execute(String script, String key, String single) {
+        Long lock;
+        try {
+            lock = redisTemplate.execute(new DefaultRedisScript<Long>(script, Long.class), Arrays.asList(key),single);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+        return lock;
+    }
+
+
 }

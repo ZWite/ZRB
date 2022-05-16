@@ -7,6 +7,8 @@ import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.zhang.Interface.PassToken;
 import com.zhang.Interface.UserLoginToken;
+import com.zhang.ThreadLocal.ContextManager;
+import com.zhang.pojo.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -50,6 +52,8 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
                 if (token == null) {
                     throw new RuntimeException("无token，请重新登录");
                 }
+                //将token存入ThreadLocal
+                ContextManager.setContextData("token",token);
                 // 获取 token 中的 user id
                 String userId;
                 try {
