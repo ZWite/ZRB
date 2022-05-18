@@ -1,5 +1,8 @@
 package com.zhang.Interceptor;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.TypeReference;
 import com.zhang.ThreadLocal.ContextManager;
 import com.zhang.bean.BeanFactoryU;
 import com.zhang.pojo.User;
@@ -14,6 +17,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 
 /**
  * @Author: diexi
@@ -36,7 +41,9 @@ public class UserThreadLocal implements HandlerInterceptor {
             return true;
         }
         if (token != null) {
-            User user = (User) redisUtils.get(token);
+//            User user = (User) redisUtils.get(token);
+//            User user = JSONObject.parseObject(JSONObject.toJSONString(redisUtils.get(token),new TypeReference(){}),User.class);
+            User user = JSON.parseObject(JSON.toJSONString((LinkedHashMap)redisUtils.get(token)),User.class);
             ContextManager.setContextData(User.class,user);
         }
         return true;

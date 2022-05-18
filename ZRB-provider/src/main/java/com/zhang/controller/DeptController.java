@@ -71,7 +71,7 @@ public class DeptController {
             redisUtils.set(deptNo.toString(),jsonObject);
             log.info("查询数据库");
         }
-        Dept dept = JSONObject.parseObject(redisUtils.get(deptNo.toString()).toString(),Dept.class);
+        Dept dept = JSONObject.parseObject(JSONObject.toJSONString(redisUtils.get(deptNo.toString())),Dept.class);
         System.out.println(dept.toString());
 //        redisLock.releaseLock("queryById",user.getUserName());
 //        redisUtils.delete("queryById");
