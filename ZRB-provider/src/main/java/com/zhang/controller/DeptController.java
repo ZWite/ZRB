@@ -3,17 +3,21 @@ package com.zhang.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.zhang.Interface.UserLoginToken;
 import com.zhang.ThreadLocal.ContextManager;
+import com.zhang.lock.RedissonLock;
 import com.zhang.pojo.Dept;
 import com.zhang.pojo.User;
 import com.zhang.redis.RedisLock;
 import com.zhang.redis.RedisUtils;
 import com.zhang.service.DeptService;
 import lombok.extern.slf4j.Slf4j;
+import org.redisson.api.RLock;
+import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -41,6 +45,9 @@ public class DeptController {
     @Autowired
     private RedisLock redisLock;
 
+    @Resource(type = RedissonLock.class)
+    private RedissonLock redissonLock;
+
     @PostMapping("/add")
     public boolean addDept(Dept dept){
         return service.addDept(dept);
@@ -57,7 +64,10 @@ public class DeptController {
     public Dept queryById(@PathVariable("deptNo") Long deptNo){
 //        String token = ContextManager.getContextData("token");
         User user = ContextManager.getContextData(User.class);
-        Boolean queryById = redisLock.lock("queryById", user.getUserName(), 2000);
+//        Boolean queryById = redisLock.lock("queryById", user.getUserName(), 2000);
+        RedissonClient redissonClient = redissonLock.redissonLock();
+        RLock getKey = redissonClient.getLock("getKey");
+        getKey.lock();
         /**
          * 自旋锁
          * 自旋需要时间限制，超出时间则结束  可能会栈溢出
@@ -75,7 +85,8 @@ public class DeptController {
         System.out.println(dept.toString());
 //        redisLock.releaseLock("queryById",user.getUserName());
 //        redisUtils.delete("queryById");
-        redisLock.releaseLock("queryById",user.getUserName());
+//        redisLock.releaseLock("queryById",user.getUserName());
+        getKey.unlock();
         return dept;
     }
 
