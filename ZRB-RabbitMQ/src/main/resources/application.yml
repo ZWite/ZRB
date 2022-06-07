@@ -1,0 +1,10 @@
+spring:
+  rabbitmq:
+    #server的请求地址,集群多个地址时可以使用逗号隔开
+    addresses: 127.0.0.1:5672
+    #rabbitmq用户名
+    username:
+    # rabbitmq密码
+    password:
+    #虚拟主机
+    virtual-host:
