@@ -29,7 +29,7 @@
         </dependency>
         <dependency>
             <groupId>com.zhang</groupId>
-            <artifactId>ZRB-fegin</artifactId>
+            <artifactId>ZRB-feign</artifactId>
             <version>1.0.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>

@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>ZRB-fegin</artifactId>
+    <artifactId>ZRB-feign</artifactId>
 
     <properties>
         <maven.compiler.source>12</maven.compiler.source>
