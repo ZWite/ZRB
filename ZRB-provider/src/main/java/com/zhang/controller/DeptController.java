@@ -1,7 +1,6 @@
 package com.zhang.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.zhang.Interface.UserLoginToken;
 import com.zhang.ThreadLocal.ContextManager;
 import com.zhang.lock.RedissonLock;
 import com.zhang.pojo.Dept;
@@ -10,6 +9,7 @@ import com.zhang.redis.RedisLock;
 import com.zhang.redis.RedisUtils;
 import com.zhang.service.DeptService;
 import lombok.extern.slf4j.Slf4j;
+import org.checkerframework.checker.units.qual.A;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +45,8 @@ public class DeptController {
     @Autowired
     private RedisLock redisLock;
 
-    @Resource(type = RedissonLock.class)
+//    @Resource(type = RedissonLock.class)
+    @Autowired
     private RedissonLock redissonLock;
 
     @PostMapping("/add")
@@ -82,7 +83,6 @@ public class DeptController {
             log.info("查询数据库");
         }
         Dept dept = JSONObject.parseObject(JSONObject.toJSONString(redisUtils.get(deptNo.toString())),Dept.class);
-        System.out.println(dept.toString());
 //        redisLock.releaseLock("queryById",user.getUserName());
 //        redisUtils.delete("queryById");
 //        redisLock.releaseLock("queryById",user.getUserName());
@@ -93,6 +93,11 @@ public class DeptController {
     @GetMapping("/queryAll")
     public List<Dept> queryAll(){
         return service.queryAll();
+    }
+    @GetMapping("/querySql/{deptNo}")
+    public Dept querySql(@PathVariable("deptNo")String deptNo){
+        String sql = "SELECT * FROM DEPT WHERE DEPT_NO = " + deptNo;
+        return service.querySql(sql);
     }
 
     //注册进来的微服务 获取一些服务消息

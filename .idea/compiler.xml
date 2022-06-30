@@ -7,18 +7,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="ZRB-poi" />
         <module name="ZRB-api" />
-        <module name="ZRB-consumer-02" />
         <module name="ZRB-provider" />
-        <module name="ZRB_gateway" />
         <module name="ZRB-provider-01" />
         <module name="ZRB-quartz" />
         <module name="ZRB-common" />
-        <module name="ZRB-eureka-01" />
         <module name="ZRB-consumer" />
-        <module name="ZRB-eureka" />
         <module name="ZRB-feign" />
+        <module name="ZRB-poi" />
+        <module name="ZRB-consumer-02" />
+        <module name="ZRB_gateway" />
+        <module name="ZRB-RabbitMQ" />
+        <module name="ZRB-eureka-01" />
+        <module name="ZRB-eureka" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

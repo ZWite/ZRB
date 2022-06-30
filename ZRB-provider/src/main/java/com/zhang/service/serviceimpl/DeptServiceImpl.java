@@ -30,6 +30,11 @@ public class DeptServiceImpl implements DeptService {
     }
 
     @Override
+    public Dept querySql(String sql) {
+        return mapper.querySql(sql);
+    }
+
+    @Override
     public List<Dept> queryAll() {
         return mapper.queryAll();
     }

@@ -23,4 +23,9 @@
     <select id="queryAll" resultMap="Dept">
         select * from dept
     </select>
+
+
+    <select id="querySql" resultMap="Dept" parameterType="String">
+        ${value}
+    </select>
 </mapper>

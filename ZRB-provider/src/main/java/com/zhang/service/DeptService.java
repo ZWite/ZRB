@@ -2,6 +2,7 @@ package com.zhang.service;
 
 import com.zhang.mapper.DeptMapper;
 import com.zhang.pojo.Dept;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,5 +15,6 @@ import java.util.List;
 public interface DeptService {
     boolean addDept(Dept dept);
     Dept queryById(Long id);
+    Dept querySql(String sql);
     List<Dept> queryAll();
 }
