@@ -1,0 +1,11 @@
+{
+  "groups": [
+    {
+      "name": "socket",
+      "type": "com.zhang.socket.HeartbeatClient",
+      "sourceType": "com.zhang.socket.HeartbeatClient"
+    }
+  ],
+  "properties": [],
+  "hints": []
+}
