@@ -11,8 +11,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication
-public class Socket_7789 {
+public class Socket_9901 {
     public static void main(String[] args) {
-        SpringApplication.run(Socket_7789.class,args);
+        SpringApplication.run(Socket_9901.class,args);
     }
 }
