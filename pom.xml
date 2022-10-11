@@ -21,6 +21,8 @@
         <module>ZRB-quartz</module>
         <module>ZRB_gateway</module>
         <module>ZRB-RabbitMQ</module>
+        <module>ZRB_Socket</module>
+        <module>ZRB-Socket01</module>
     </modules>
 
     <properties>

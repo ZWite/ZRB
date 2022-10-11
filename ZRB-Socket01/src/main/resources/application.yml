@@ -1,0 +1,4 @@
+server:
+  port: 9901
+client:
+  port: 9900

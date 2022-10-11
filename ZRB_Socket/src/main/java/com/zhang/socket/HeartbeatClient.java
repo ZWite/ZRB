@@ -1,5 +1,10 @@
 package com.zhang.socket;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -11,8 +16,8 @@ import java.util.UUID;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-//@Component
-//@ConfigurationProperties(prefix="socket")
+@Component
+@ConfigurationProperties(prefix="socket")
 public class HeartbeatClient {
 
     Object hashLock = new Object();
@@ -30,7 +35,8 @@ public class HeartbeatClient {
     /*服务器地址*/
     private String Ip;
     //服务器端口
-    private int Port;
+    @Value("${server.port}")
+    private int serverPort;
     //节点ID
     private String nodeID = UUID.randomUUID().toString();
     //是否启动
@@ -47,7 +53,8 @@ public class HeartbeatClient {
     /* 客户端列表*/
     private List<Socket> socketList = new ArrayList<>();
 
-    public void  startListenReport(int serverPort){
+    @PostConstruct
+    public void  startListenReport(){
         try {
             // 创建服务器 socket
             serverSocket = new ServerSocket(serverPort);
