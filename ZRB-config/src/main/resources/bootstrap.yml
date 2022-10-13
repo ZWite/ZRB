@@ -1,0 +1,18 @@
+server:
+  port: 8801
+spring:
+  application:
+    # 应用名称
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          # 配置git仓库位置
+          uri: https://github.com/ZWite/commonConfig
+          # 配置仓库路径下的相对搜索位置，多个中间逗号隔开
+          search-paths: /
+          # 访问git仓库的用户名
+          username:
+          # 访问git仓库的用户密码
+          password:

@@ -23,6 +23,7 @@
         <module>ZRB-RabbitMQ</module>
         <module>ZRB_Socket</module>
         <module>ZRB-Socket01</module>
+        <module>ZRB-config</module>
     </modules>
 
     <properties>

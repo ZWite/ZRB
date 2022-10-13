@@ -1,12 +1,9 @@
 package com.zhang;
 
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.cloud.config.server.EnableConfigServer;
 
 /**
  * @author diexi
@@ -23,11 +20,10 @@ import org.springframework.web.bind.annotation.RestController;
  * 所以，使用EnableDiscoverClient，对任何注册中心都适用。而EnableEurekaClient是为eureka服务的。
  * springcloud的Dalston或更早期的版本EnableEurekaClient是包含EnableDiscoverClient注解的，这种情况使用什么已经没区别了。
  */
-@EnableEurekaClient
-//@EnableDiscoveryClient
 @SpringBootApplication
-public class Provider_8001 {
+@EnableConfigServer
+public class Provider_8801 {
     public static void main(String[] args) {
-        SpringApplication.run(Provider_8001.class,args);
+        SpringApplication.run(Provider_8801.class,args);
     }
 }
