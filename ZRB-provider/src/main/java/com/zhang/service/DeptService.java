@@ -5,6 +5,7 @@ import com.zhang.pojo.Dept;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
@@ -17,4 +18,6 @@ public interface DeptService {
     Dept queryById(Long id);
     Dept querySql(String sql);
     List<Dept> queryAll();
+
+    void fileView(String fileUrl, HttpServletResponse response) throws Exception;
 }

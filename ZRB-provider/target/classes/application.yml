@@ -11,6 +11,11 @@ mybatis:
 spring:
   application:
     name: spring-provider-8001
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/ZWite/commonConfig/blob/master/commonConfig.git
 #  #数据源配置
 #  datasource:
 #    driver-class-name: com.mysql.cj.jdbc.Driver

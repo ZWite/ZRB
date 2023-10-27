@@ -1,7 +1,10 @@
 package com.zhang.controller;
 
+import com.zhang.Interface.ServiceAop;
+import com.zhang.StringUtils;
 import com.zhang.ThreadLocal.ContextManager;
-import com.zhang.ThreadLocal.ThreadLocalData;
+import com.zhang.UserUtils.UUtils;
+import com.zhang.assertUtils.AssertUtils;
 import com.zhang.pojo.User;
 import com.zhang.redis.RedisUtils;
 import com.zhang.service.LoginService;
@@ -20,28 +23,30 @@ import static com.zhang.jwtToken.JwtToken.createJToken;
 @RestController
 public class LoginControl {
 
+    private static String yz ="wyz980622";
+
     @Autowired
     private LoginService service;
 
     @Autowired
     private RedisUtils redisUtils;
 
+    @ServiceAop(name = "login")
     @PostMapping("/login")
     public void login(@RequestBody User user) {
-        String countUser = service.getCountUser(user);
-        User contextUser = service.findUserById(user.getUserName());
-        String jToken = createJToken(user.getUserName());
-        System.out.println(jToken);
-        redisUtils.set(jToken, contextUser, 1, TimeUnit.HOURS);
-//        redisUtils.setHash(User.class.getName(), user.getUserName(), jToken);
-        Object hash = redisUtils.getHash(User.class.getName(), user.getUserName());
-        System.out.println(hash);
-        final Object o = redisUtils.get(jToken);
-        System.out.println(o);
-//        ContextManager.setContextData(User.class,contextUser);
+        Object result = redisUtils.get(UUtils.generateOnlyUserSignleEncryption(user));
+//        Object result = redisUtils.getHash(User.class.getName(),user.getUserName());
+        if(result == null) {
+            String countUser = service.getCountUser(user);
+            AssertUtils.isNull(StringUtils.isEmpty(countUser),"请检查账户名密码是否一致");
+//            User contextUser = service.findUserById(user.getUserName());
+            String jToken = createJToken(user.getUserName());
+            redisUtils.set(UUtils.generateOnlyUserSignleEncryption(user), jToken, 1, TimeUnit.HOURS);
+//            redisUtils.setHash(User.class.getName(), user.getUserName(), jToken);
+        }
     }
 
-    @PostMapping("/findId/{userName}")
+    @GetMapping("/findId/{userName}")
     public void login(@PathVariable("userName") String userName) {
         User contextData = ContextManager.getContextData(User.class);
         System.out.println(contextData.toString());

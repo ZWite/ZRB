@@ -36,7 +36,7 @@ public class ContextManager {
     }
 
     public static void clearContextData() {
-        ((ThreadLocalData)localData.get()).clear();
-        localData.remove();
+        //((ThreadLocalData)localData.get()).clear();
+        //localData.remove();
     }
 }

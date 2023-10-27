@@ -9,7 +9,7 @@ spring:
       server:
         git:
           # 配置git仓库位置
-          uri: https://github.com/ZWite/commonConfig
+          uri: https://github.com/ZWite/commonConfig.git
           # 配置仓库路径下的相对搜索位置，多个中间逗号隔开
           search-paths: /
           # 访问git仓库的用户名

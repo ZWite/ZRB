@@ -3,6 +3,7 @@ package com.zhang.pojo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
@@ -18,8 +19,12 @@ import java.io.Serializable;
 @Accessors(chain = true) // 链式写法
 public class User implements Serializable {
 
+    @NonNull
     private Long id;
+    @NonNull
     private String userName;
+    @NonNull
     private String password;
+    @NonNull
     private String passwordE;
 }

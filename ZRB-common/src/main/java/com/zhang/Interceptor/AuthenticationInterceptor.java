@@ -6,10 +6,13 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.zhang.Interface.PassToken;
+import com.zhang.Interface.ServiceAop;
 import com.zhang.Interface.UserLoginToken;
 import com.zhang.ThreadLocal.ContextManager;
+import com.zhang.aop.AspectPointcut;
 import com.zhang.pojo.User;
 import lombok.extern.slf4j.Slf4j;
+import org.aspectj.lang.JoinPoint;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -71,6 +74,18 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
                 }
                 return true;
             }
+        }
+        //检查是否有AOP注解，有AOP注解执行枷锁方法
+        if (method.isAnnotationPresent(ServiceAop.class) || method.getDeclaringClass().isAnnotationPresent(ServiceAop.class)){
+            log.info("有AOP注解执行枷锁方法");
+            try {
+                Class<AspectPointcut> aspectPointcutClass = AspectPointcut.class;
+                Method before = aspectPointcutClass.getMethod("before", JoinPoint.class);
+                before.invoke(JoinPoint.class);
+            } catch (Exception e){
+                throw new RuntimeException("The AOP has expired");
+            }
+            log.info("有AOP注解执行枷锁方法结束");
         }
         return true;
     }

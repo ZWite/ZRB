@@ -8,3 +8,5 @@ spring:
     password:
     #虚拟主机
     virtual-host:
+server:
+  port: 15672

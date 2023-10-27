@@ -10,23 +10,33 @@
         <module name="ZRB-api" />
         <module name="ZRB-provider" />
         <module name="ZRB-provider-01" />
+        <module name="ZRB-config" />
+        <module name="ZRB-bddw" />
+        <module name="ZRB-workwechat" />
         <module name="ZRB-quartz" />
         <module name="ZRB-common" />
         <module name="ZRB-consumer" />
         <module name="ZRB-feign" />
+        <module name="ZRB_Socket" />
         <module name="ZRB-poi" />
         <module name="ZRB-consumer-02" />
+        <module name="ZRB-Socket01" />
         <module name="ZRB_gateway" />
+        <module name="ZRB-SocketIO" />
         <module name="ZRB-RabbitMQ" />
         <module name="ZRB-eureka-01" />
         <module name="ZRB-eureka" />
+        <module name="demo2" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="ZRB-common-server" target="12" />
-      <module name="ZRB-consumer-01" target="12" />
-      <module name="ZRB-eureka (1)" target="12" />
-      <module name="ZRB-getway" target="12" />
+    <bytecodeTargetLevel target="12">
+      <module name="demo1" target="12" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="demo1" options="-parameters" />
+      <module name="demo2" options="-parameters" />
+    </option>
   </component>
 </project>

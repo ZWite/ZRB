@@ -18,6 +18,7 @@ import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -118,6 +119,15 @@ public class DeptController {
             );
         }
         return  this.discoveryClient;
+    }
+
+    @GetMapping("fileView")
+    public void fileView(@RequestParam String fileUrl, HttpServletResponse response) {
+        try {
+            service.fileView(fileUrl, response);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

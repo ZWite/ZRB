@@ -1,0 +1,14 @@
+server:
+  port: 8001
+
+spring:
+  cloud:
+    config:
+      #取spring cloud配置文件规则（{application}-{profile}）中的{application},多个逗号隔开
+      name: spring-cloud-common
+      # 获取配置文件的分支，默认是master。如果是是本地获取的话，则无用。
+      label: master
+      #取spring cloud配置文件规则（{application}-{profile}）中的{profile}
+      profile: dev
+      # config server的本地地址
+      uri: http://localhost:8801/

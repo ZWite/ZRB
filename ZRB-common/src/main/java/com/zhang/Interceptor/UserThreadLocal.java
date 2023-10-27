@@ -54,7 +54,7 @@ public class UserThreadLocal implements HandlerInterceptor {
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, @Nullable Exception ex) throws Exception {
         log.info("拦截器2释放");
-        ContextManager.clearContextData();
+//        ContextManager.clearContextData();
     }
 
 }

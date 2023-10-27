@@ -24,6 +24,9 @@
         <module>ZRB_Socket</module>
         <module>ZRB-Socket01</module>
         <module>ZRB-config</module>
+        <module>ZRB-bddw</module>
+        <module>ZRB-SocketIO</module>
+        <module>ZRB-workwechat</module>
     </modules>
 
     <properties>

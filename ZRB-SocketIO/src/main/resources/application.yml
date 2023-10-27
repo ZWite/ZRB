@@ -1,0 +1,9 @@
+server:
+  port: 9099
+
+#mybatis配置
+mybatis:
+  type-aliases-package: com.zhang.pojo
+  #可有可无
+  #config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
