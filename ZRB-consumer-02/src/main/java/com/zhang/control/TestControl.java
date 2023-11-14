@@ -18,10 +18,18 @@ public class TestControl {
     @GetMapping("/mid")
     @HystrixCommand(defaultFallback = "testHsiR")
     public JsonResult testHsi(){
-        int i = 1/0;
-        return new JsonResult().ERROR();
+        JsonResult jsonResult = new JsonResult();
+        return jsonResult.SUCCESS();
     }
     public JsonResult testHsiR(){
         return new JsonResult().ERROR("当前服务已熔断");
+    }
+
+
+    @GetMapping("/midA")
+    @HystrixCommand(defaultFallback = "testHsiR")
+    public JsonResult testHsiA(){
+        JsonResult jsonResult = new JsonResult();
+        return jsonResult.SUCCESS();
     }
 }

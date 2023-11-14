@@ -15,7 +15,15 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/ZWite/commonConfig/blob/master/commonConfig.git
+          uri: https://github.com/ZWite/commonConfig/blob/master
+          # 对应 {label} 部分，即 Git 的分支
+          label: master
+          # 仓库文件夹名称，多个以逗号分隔
+          search-paths:
+          # git 仓库用户名（公开库可以不用填写）
+          username:
+          # git 仓库密码（公开库可以不用填写）
+          password:
 #  #数据源配置
 #  datasource:
 #    driver-class-name: com.mysql.cj.jdbc.Driver

@@ -1,8 +1,23 @@
 server:
   port: 8789
 
+#spring:
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: spring-provider-80            # 路由的唯一标识
+#          # 这里的地址需要使用 lb://服务名的方式进行转发
+#          uri: lb://spring-provider-80       # 如果断言成功，将要转发去的地址
+#          order: 0                    # 优先级，越小优先级越高
+#          predicates:                 # 断言，满足所有断言，才会进行转发
+#            - Path=/test/**        # 注意：这是使用= 不是：
+#        - id: shop-order
+#          uri:  https://localhost:80
+#          order: 0
+#          predicates:
+#            - Path=/order/**
 spring:
-  application:
+   application:
     name: ZuulApplication-8789
 
 eureka:
@@ -12,21 +27,26 @@ eureka:
     service-url:
       defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/
 
+#zuul:
+#  routes:
+#    route:
+#      path: /test
+#      serviceId: spring-provider-80
 
 zuul:
   prefix: /zrb
   routes:
-    user-service:
-      serviceId: spring-provider-8001
+    route:
       path: /test/**
-  ignored-services:
-    - spring-provider-8001
+      serviceId: spring-provider-80
+    ignored-services:
+      - "*"
 
 
-#设置routes接口可访问，该接口可以查看所以允许转发的请求
-management:
-  endpoints:
-    web:
-      exposure:
-        include:
-          - routes
+##设置routes接口可访问，该接口可以查看所以允许转发的请求
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include:
+#          - routes

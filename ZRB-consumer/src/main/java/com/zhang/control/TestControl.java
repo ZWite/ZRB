@@ -7,6 +7,7 @@ import com.zhang.result.JsonResult;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -37,5 +38,11 @@ public class TestControl {
         return new JsonResult().ERROR("当前服务已熔断");
     }
 
+
+    @GetMapping("/mid/{id}")
+    @HystrixCommand(defaultFallback = "testHsiR")
+    public String testHsi(@PathVariable("id") String id){
+        return "路径参数为："+id;
+    }
 
 }

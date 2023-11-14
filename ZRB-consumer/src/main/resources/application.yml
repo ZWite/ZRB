@@ -9,6 +9,6 @@ eureka:
   instance:
     instance-id: spring-provider-80
   client:
-    register-with-eureka: false
+    register-with-eureka: true
     service-url:
       defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/
